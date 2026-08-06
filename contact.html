@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+            name="description"
+            content="Contact Olivia Leon about creative and graphic design projects."
+        />
+
+        <title>Contact — Olivia Leon</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --black: #111111;
+                --grey: #777777;
+                --light-grey: #eeeeee;
+                --white: #ffffff;
+
+                --body-font: "DM Sans", Arial, sans-serif;
+                --display-font: "Cormorant Garamond", Georgia, serif;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                min-height: 100vh;
+                overflow-x: hidden;
+
+                background: var(--white);
+                color: var(--black);
+
+                font-family: var(--body-font);
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            button,
+            input,
+            textarea {
+                font: inherit;
+            }
+
+            .page {
+                position: relative;
+
+                min-height: 100vh;
+
+                overflow: hidden;
+
+                background: var(--white);
+
+                isolation: isolate;
+            }
+
+            /* HEADER */
+
+            .header {
+                position: relative;
+                z-index: 10;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                padding: 34px 64px;
+            }
+
+            .brand {
+                font-family: var(--display-font);
+                font-size: 1.85rem;
+                font-weight: 500;
+
+                letter-spacing: -0.04em;
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+
+                gap: 34px;
+            }
+
+            .nav a {
+                position: relative;
+
+                color: var(--black);
+
+                font-size: 0.72rem;
+                font-weight: 600;
+
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+            }
+
+            .nav a::after {
+                content: "";
+
+                position: absolute;
+
+                right: 0;
+                bottom: -7px;
+                left: 0;
+
+                height: 1px;
+
+                background: var(--black);
+
+                transform: scaleX(0);
+                transform-origin: left;
+
+                transition: transform 180ms ease;
+            }
+
+            .nav a:hover::after,
+            .nav a:focus-visible::after {
+                transform: scaleX(1);
+            }
+
+            /* CONTACT HERO */
+
+            .contact-hero {
+                position: relative;
+                z-index: 3;
+
+                display: flex;
+                min-height: 490px;
+
+                align-items: center;
+
+                padding: 80px 64px 90px;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 4;
+
+                max-width: 980px;
+            }
+
+            .eyebrow {
+                margin-bottom: 22px;
+
+                color: var(--grey);
+
+                font-size: 0.7rem;
+                font-weight: 600;
+
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+            }
+
+            h1 {
+                max-width: 960px;
+
+                font-family: var(--display-font);
+                font-size: clamp(4.8rem, 9vw, 8.5rem);
+                font-weight: 500;
+
+                letter-spacing: -0.055em;
+                line-height: 0.88;
+            }
+
+            .hero-description {
+                max-width: 650px;
+
+                margin-top: 32px;
+
+                color: var(--grey);
+
+                font-size: 1rem;
+                line-height: 1.85;
+            }
+
+            /* CONTACT DETAILS */
+
+            .contact-section {
+                position: relative;
+                z-index: 4;
+
+                display: grid;
+                grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+
+                gap: clamp(60px, 9vw, 140px);
+
+                padding: 40px 64px 130px;
+            }
+
+            .section-label {
+                margin-bottom: 26px;
+
+                color: var(--black);
+
+                font-size: 0.9rem;
+                font-weight: 600;
+
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+            }
+
+            .contact-list {
+                display: flex;
+                flex-direction: column;
+
+                gap: 34px;
+            }
+
+            .contact-item span {
+                display: block;
+
+                margin-bottom: 8px;
+
+                color: var(--grey);
+
+                font-size: 0.68rem;
+                font-weight: 600;
+
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+            }
+
+            .contact-item a {
+                display: inline-block;
+
+                font-family: var(--display-font);
+                font-size: clamp(1.8rem, 3vw, 2.8rem);
+                font-weight: 500;
+
+                letter-spacing: -0.03em;
+
+                transition: opacity 180ms ease;
+            }
+
+            .contact-item a:hover,
+            .contact-item a:focus-visible {
+                opacity: 0.55;
+                outline: none;
+            }
+
+            /* REVIEW FORM */
+
+            .review-box {
+                max-width: 680px;
+
+                padding: 38px;
+
+                border: 1px solid var(--black);
+                border-radius: 26px;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .review-box h2 {
+                margin-bottom: 12px;
+
+                font-family: var(--display-font);
+                font-size: clamp(2.4rem, 4vw, 3.7rem);
+                font-weight: 500;
+
+                letter-spacing: -0.035em;
+                line-height: 1;
+            }
+
+            .review-intro {
+                max-width: 520px;
+
+                margin-bottom: 30px;
+
+                color: var(--grey);
+
+                font-size: 0.92rem;
+                line-height: 1.7;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+
+                margin-bottom: 9px;
+
+                color: var(--black);
+
+                font-size: 0.7rem;
+                font-weight: 600;
+
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+
+                border: 1px solid #cfcfcf;
+                border-radius: 14px;
+
+                background: var(--white);
+                color: var(--black);
+
+                font-size: 0.95rem;
+
+                outline: none;
+
+                transition: border-color 180ms ease, box-shadow 180ms ease;
+            }
+
+            .form-group input {
+                min-height: 50px;
+
+                padding: 0 16px;
+            }
+
+            .form-group textarea {
+                min-height: 150px;
+
+                padding: 15px 16px;
+
+                line-height: 1.6;
+
+                resize: vertical;
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus {
+                border-color: var(--black);
+
+                box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+            }
+
+            .submit-button {
+                display: inline-flex;
+                min-height: 48px;
+
+                align-items: center;
+                justify-content: center;
+
+                padding: 0 24px;
+
+                border: 1px solid var(--black);
+                border-radius: 999px;
+
+                background: var(--white);
+                color: var(--black);
+
+                font-size: 0.74rem;
+                font-weight: 600;
+
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+
+                cursor: pointer;
+
+                transition: background 180ms ease, color 180ms ease,
+                    transform 180ms ease;
+            }
+
+            .submit-button:hover,
+            .submit-button:focus-visible {
+                background: var(--black);
+                color: var(--white);
+
+                outline: none;
+
+                transform: translateY(-3px);
+            }
+
+            /* GREY BLOBS */
+
+            .blob {
+                position: absolute;
+                z-index: -1;
+
+                pointer-events: none;
+
+                filter: blur(32px);
+
+                animation: floatBlob 11s ease-in-out infinite alternate;
+            }
+
+            .blob-one {
+                width: 560px;
+                height: 390px;
+
+                top: 230px;
+                right: -300px;
+
+                border-radius: 48% 52% 64% 36% / 42% 38% 62% 58%;
+
+                background: radial-gradient(
+                    circle at 45% 50%,
+                    rgba(75, 75, 75, 0.24) 0%,
+                    rgba(145, 145, 145, 0.12) 43%,
+                    rgba(215, 215, 215, 0.05) 65%,
+                    transparent 76%
+                );
+            }
+
+            .blob-two {
+                width: 620px;
+                height: 440px;
+
+                left: -360px;
+                bottom: -210px;
+
+                border-radius: 62% 38% 42% 58% / 44% 61% 39% 56%;
+
+                background: radial-gradient(
+                    circle at 55% 45%,
+                    rgba(95, 95, 95, 0.19) 0%,
+                    rgba(165, 165, 165, 0.09) 45%,
+                    rgba(225, 225, 225, 0.04) 66%,
+                    transparent 76%
+                );
+
+                animation-delay: -5s;
+            }
+
+            /* FOOTER */
+
+            .footer {
+                position: relative;
+                z-index: 5;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                gap: 20px;
+
+                padding: 22px 34px;
+
+                background: var(--black);
+                color: var(--white);
+
+                font-size: 0.68rem;
+                font-weight: 500;
+
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            @keyframes floatBlob {
+                from {
+                    transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+
+                to {
+                    transform: translate3d(18px, -14px, 0) rotate(5deg);
+                }
+            }
+
+            /* TABLET */
+
+            @media (max-width: 900px) {
+                .header {
+                    padding: 28px 36px;
+                }
+
+                .contact-hero {
+                    min-height: 450px;
+
+                    padding: 70px 36px 80px;
+                }
+
+                .contact-section {
+                    grid-template-columns: 1fr;
+
+                    gap: 80px;
+
+                    padding-right: 36px;
+                    padding-left: 36px;
+                }
+
+                .review-box {
+                    max-width: 720px;
+                }
+
+                .blob-one {
+                    width: 460px;
+                    height: 340px;
+
+                    top: 260px;
+                    right: -290px;
+                }
+            }
+
+            /* MOBILE */
+
+            @media (max-width: 700px) {
+                .header {
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    gap: 20px;
+
+                    padding: 24px 22px;
+                }
+
+                .brand {
+                    font-size: 1.65rem;
+                }
+
+                .nav {
+                    width: 100%;
+
+                    justify-content: space-between;
+
+                    gap: 14px;
+                }
+
+                .nav a {
+                    font-size: 0.67rem;
+                }
+
+                .contact-hero {
+                    min-height: 420px;
+
+                    padding: 70px 22px 60px;
+                }
+
+                h1 {
+                    font-size: clamp(4.2rem, 19vw, 6.2rem);
+                }
+
+                .contact-section {
+                    gap: 70px;
+
+                    padding: 30px 22px 100px;
+                }
+
+                .review-box {
+                    padding: 28px 22px;
+
+                    border-radius: 20px;
+                }
+
+                .blob-one {
+                    width: 340px;
+                    height: 260px;
+
+                    top: 300px;
+                    right: -260px;
+                }
+
+                .blob-two {
+                    width: 390px;
+                    height: 300px;
+
+                    left: -280px;
+                    bottom: -180px;
+                }
+
+                .footer {
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    padding: 18px 22px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation: none !important;
+                    transition: none !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="page">
+            <div class="blob blob-one"></div>
+            <div class="blob blob-two"></div>
+
+            <header class="header">
+                <a
+                    class="brand"
+                    href="index.html"
+                    aria-label="Return to the homepage"
+                >
+                    byolivialeon
+                </a>
+
+                <nav class="nav" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="work.html">My Work</a>
+                </nav>
+            </header>
+
+            <section class="contact-hero">
+                <div class="hero-content">
+                    <h1>Let's make something together.</h1>
+
+                    <p class="hero-description">
+                        Email me with a little information about yourself and
+                        your idea to get started on your project. Tell me what
+                        you're hoping to create, what inspired it, and how I can
+                        help bring it to life.
+                    </p>
+                </div>
+            </section>
+
+            <section class="contact-section">
+                <div class="contact-details">
+                    <p class="section-label">Get in touch</p>
+
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <span>Email</span>
+
+                            <a href="mailto:olivialeonr1@gmail.com">
+                                olivialeonr1@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="contact-item">
+                            <span>Instagram</span>
+
+                            <a
+                                href="https://www.instagram.com/byolivialeon/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                @byolivialeon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-box">
+                    <h2>Leave a review</h2>
+
+                    <p class="review-intro">
+                        Have we worked together before? I'd love to hear about
+                        your experience. Fill this out and it will open an email
+                        addressed to me.
+                    </p>
+
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label for="reviewName"> Your name </label>
+
+                            <input
+                                type="text"
+                                id="reviewName"
+                                name="reviewName"
+                                placeholder="Your name"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reviewMessage"> Your review </label>
+
+                            <textarea
+                                id="reviewMessage"
+                                name="reviewMessage"
+                                placeholder="Tell me about your experience..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button class="submit-button" type="submit">
+                            Send Review
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <span>Olivia Leon</span>
+                <span>Created with intention</span>
+            </footer>
+        </main>
+
+        <script>
+            const reviewForm = document.getElementById("reviewForm");
+
+            reviewForm.addEventListener("submit", function(event) {
+              event.preventDefault();
+
+              const name = document
+                .getElementById("reviewName")
+                .value
+                .trim();
+
+              const review = document
+                .getElementById("reviewMessage")
+                .value
+                .trim();
+
+              const subject = encodeURIComponent(
+                "Portfolio Review from " + name
+              );
+
+              const body = encodeURIComponent(
+                "Name: " + name + "\\n\\nReview:\\n" + review
+              );
+
+              window.location.href =
+                "mailto:olivialeonr1@gmail.com" +
+                "?subject=" + subject +
+                "&body=" + body;
+            });
+        </script>
+    </body>
+</html>

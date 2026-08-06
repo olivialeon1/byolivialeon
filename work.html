@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+            name="description"
+            content="Selected creative work by Olivia Leon."
+        />
+
+        <title>My Work — Olivia Leon</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --black: #111111;
+                --grey: #777777;
+                --light-grey: #eeeeee;
+                --soft-grey: #f7f7f7;
+                --white: #ffffff;
+
+                --body-font: "DM Sans", Arial, sans-serif;
+                --display-font: "Cormorant Garamond", Georgia, serif;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                min-height: 100vh;
+                overflow-x: hidden;
+                background: var(--white);
+                color: var(--black);
+                font-family: var(--body-font);
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .page {
+                position: relative;
+                min-height: 100vh;
+                overflow: hidden;
+                background: var(--white);
+                isolation: isolate;
+            }
+
+            /* HEADER */
+
+            .header {
+                position: relative;
+                z-index: 10;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                padding: 34px 64px;
+            }
+
+            .brand {
+                font-family: var(--display-font);
+                font-size: 1.85rem;
+                font-weight: 500;
+                letter-spacing: -0.04em;
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+                gap: 34px;
+            }
+
+            .nav a {
+                position: relative;
+
+                color: var(--black);
+
+                font-size: 0.72rem;
+                font-weight: 600;
+
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+            }
+
+            .nav a::after {
+                content: "";
+
+                position: absolute;
+                right: 0;
+                bottom: -7px;
+                left: 0;
+
+                height: 1px;
+                background: var(--black);
+
+                transform: scaleX(0);
+                transform-origin: left;
+
+                transition: transform 180ms ease;
+            }
+
+            .nav a:hover::after,
+            .nav a:focus-visible::after {
+                transform: scaleX(1);
+            }
+
+            /* HERO */
+
+            .work-hero {
+                position: relative;
+                z-index: 3;
+
+                display: flex;
+                min-height: 500px;
+
+                align-items: center;
+
+                padding: 80px 64px 90px;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 4;
+                max-width: 960px;
+            }
+
+            .eyebrow {
+                margin-bottom: 22px;
+
+                color: var(--grey);
+
+                font-size: 0.7rem;
+                font-weight: 600;
+
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+            }
+
+            h1 {
+                max-width: 900px;
+
+                font-family: var(--display-font);
+                font-size: clamp(5rem, 10vw, 9rem);
+                font-weight: 500;
+
+                letter-spacing: -0.055em;
+                line-height: 0.84;
+            }
+
+            .hero-description {
+                max-width: 640px;
+
+                margin-top: 32px;
+
+                color: var(--grey);
+
+                font-size: 1rem;
+                line-height: 1.85;
+            }
+
+            /* SECTIONS */
+
+            .work-section {
+                position: relative;
+                z-index: 4;
+
+                padding: 110px 64px;
+                background: var(--white);
+            }
+
+            .work-section.alt {
+                background: var(--soft-grey);
+            }
+
+            .simple-heading {
+                margin-bottom: 48px;
+            }
+
+            .section-number {
+                margin-bottom: 18px;
+
+                color: var(--grey);
+
+                font-size: 0.7rem;
+                font-weight: 600;
+
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+            }
+
+            .section-title {
+                max-width: 850px;
+
+                font-family: var(--display-font);
+                font-size: clamp(3rem, 6vw, 5.6rem);
+                font-weight: 500;
+
+                letter-spacing: -0.045em;
+                line-height: 0.95;
+            }
+
+            /* SQUARE GALLERIES */
+
+            .square-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .square-item {
+                aspect-ratio: 1 / 1;
+                overflow: hidden;
+
+                border-radius: 16px;
+                background: var(--light-grey);
+            }
+
+            .square-item img {
+                transition: transform 220ms ease;
+            }
+
+            .square-item:hover img {
+                transform: scale(1.025);
+            }
+
+            /* POSTER GALLERY */
+
+            .poster-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 24px;
+            }
+
+            .poster-item {
+                aspect-ratio: 2 / 3;
+                overflow: hidden;
+
+                border-radius: 16px;
+                background: var(--light-grey);
+            }
+
+            .poster-item img {
+                transition: transform 220ms ease;
+            }
+
+            .poster-item:hover img {
+                transform: scale(1.025);
+            }
+
+            /* B2 */
+
+            .b2-section {
+                background: var(--white);
+            }
+
+            .b2-subsection + .b2-subsection {
+                margin-top: 110px;
+            }
+
+            .subsection-heading {
+                margin-bottom: 40px;
+            }
+
+            .subsection-label {
+                margin-bottom: 14px;
+
+                color: var(--grey);
+
+                font-size: 0.72rem;
+                font-weight: 600;
+
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+            }
+
+            .subsection-title {
+                font-family: var(--display-font);
+                font-size: clamp(2.8rem, 5vw, 4.8rem);
+                font-weight: 500;
+
+                letter-spacing: -0.04em;
+                line-height: 0.95;
+            }
+
+            /* BLOBS */
+
+            .blob {
+                position: absolute;
+                z-index: -1;
+
+                pointer-events: none;
+
+                filter: blur(32px);
+
+                animation: floatBlob 11s ease-in-out infinite alternate;
+            }
+
+            .blob-one {
+                width: 580px;
+                height: 410px;
+
+                top: 240px;
+                right: -330px;
+
+                border-radius: 48% 52% 64% 36% / 42% 38% 62% 58%;
+
+                background: radial-gradient(
+                    circle at 45% 50%,
+                    rgba(80, 80, 80, 0.24) 0%,
+                    rgba(145, 145, 145, 0.12) 43%,
+                    rgba(215, 215, 215, 0.05) 65%,
+                    transparent 76%
+                );
+            }
+
+            .blob-two {
+                width: 620px;
+                height: 450px;
+
+                left: -390px;
+                top: 1150px;
+
+                border-radius: 62% 38% 42% 58% / 44% 61% 39% 56%;
+
+                background: radial-gradient(
+                    circle at 55% 45%,
+                    rgba(95, 95, 95, 0.18) 0%,
+                    rgba(165, 165, 165, 0.09) 45%,
+                    rgba(225, 225, 225, 0.04) 66%,
+                    transparent 76%
+                );
+
+                animation-delay: -5s;
+            }
+
+            /* FOOTER */
+
+            .footer {
+                position: relative;
+                z-index: 5;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                gap: 20px;
+
+                padding: 22px 34px;
+
+                background: var(--black);
+                color: var(--white);
+
+                font-size: 0.68rem;
+                font-weight: 500;
+
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            @keyframes floatBlob {
+                from {
+                    transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+
+                to {
+                    transform: translate3d(18px, -14px, 0) rotate(5deg);
+                }
+            }
+
+            /* TABLET */
+
+            @media (max-width: 1000px) {
+                .header {
+                    padding: 28px 36px;
+                }
+
+                .work-hero,
+                .work-section {
+                    padding-right: 36px;
+                    padding-left: 36px;
+                }
+
+                .square-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .poster-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            /* MOBILE */
+
+            @media (max-width: 700px) {
+                .header {
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    gap: 20px;
+
+                    padding: 24px 22px;
+                }
+
+                .brand {
+                    font-size: 1.65rem;
+                }
+
+                .nav {
+                    width: 100%;
+                    justify-content: space-between;
+                    gap: 14px;
+                }
+
+                .nav a {
+                    font-size: 0.67rem;
+                }
+
+                .work-hero {
+                    min-height: 430px;
+                    padding: 70px 22px 60px;
+                }
+
+                h1 {
+                    font-size: clamp(4.5rem, 21vw, 6.5rem);
+                }
+
+                .work-section {
+                    padding: 90px 22px;
+                }
+
+                .square-grid,
+                .poster-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .b2-subsection + .b2-subsection {
+                    margin-top: 90px;
+                }
+
+                .footer {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    padding: 18px 22px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation: none !important;
+                    transition: none !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="page">
+            <div class="blob blob-one"></div>
+            <div class="blob blob-two"></div>
+
+            <header class="header">
+                <a
+                    class="brand"
+                    href="index.html"
+                    aria-label="Return to the homepage"
+                >
+                    byolivialeon
+                </a>
+
+                <nav class="nav" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </header>
+
+            <section class="work-hero">
+                <div class="hero-content">
+                    <p class="eyebrow">Selected work</p>
+
+                    <h1>A collection of things I've created.</h1>
+
+                    <p class="hero-description">
+                        Explore a selection of logos, stickers, photography,
+                        posters, and branding work.
+                    </p>
+                </div>
+            </section>
+
+            <!-- LOGOS AND STICKERS: 2 ROWS OF 4 -->
+
+            <section class="work-section" id="logos">
+                <div class="simple-heading">
+                    <p class="section-number">01 / Logos & Stickers</p>
+
+                    <h2 class="section-title">Creative logos and stickers.</h2>
+                </div>
+
+                <div class="square-grid">
+                    <div class="square-item">
+                        <img
+                            src="images/logo-1.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/logo-2.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/logo-3.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/logo-4.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/logo-5.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/logo-6.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/logo-7.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/logo-8.jpg"
+                            alt="Logo or sticker design"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHOTOGRAPHY: 5 ROWS OF 4 -->
+
+            <section class="work-section alt" id="photos">
+                <div class="simple-heading">
+                    <p class="section-number">02 / Creative Photos</p>
+
+                    <h2 class="section-title">Creative photography.</h2>
+                </div>
+
+                <div class="square-grid">
+                    <div class="square-item">
+                        <img
+                            src="images/photo-1.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-2.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-3.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-4.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/photo-5.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-6.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-7.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-8.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/photo-9.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-10.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-11.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-12.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/photo-13.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-14.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-15.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-16.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+
+                    <div class="square-item">
+                        <img
+                            src="images/photo-17.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-18.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-19.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                    <div class="square-item">
+                        <img
+                            src="images/photo-20.jpg"
+                            alt="Creative photograph"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <!-- POSTERS: 2 ROWS OF 3 -->
+
+            <section class="work-section" id="posters">
+                <div class="simple-heading">
+                    <p class="section-number">03 / Creative Posters</p>
+
+                    <h2 class="section-title">Creative poster design.</h2>
+                </div>
+
+                <div class="poster-grid">
+                    <div class="poster-item">
+                        <img
+                            src="images/poster-1.jpg"
+                            alt="Creative poster design"
+                        />
+                    </div>
+
+                    <div class="poster-item">
+                        <img
+                            src="images/poster-2.jpg"
+                            alt="Creative poster design"
+                        />
+                    </div>
+
+                    <div class="poster-item">
+                        <img
+                            src="images/poster-3.jpg"
+                            alt="Creative poster design"
+                        />
+                    </div>
+
+                    <div class="poster-item">
+                        <img
+                            src="images/poster-4.jpg"
+                            alt="Creative poster design"
+                        />
+                    </div>
+
+                    <div class="poster-item">
+                        <img
+                            src="images/poster-5.jpg"
+                            alt="Creative poster design"
+                        />
+                    </div>
+
+                    <div class="poster-item">
+                        <img
+                            src="images/poster-6.jpg"
+                            alt="Creative poster design"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <!-- B2 FABWORKS -->
+
+            <section class="work-section b2-section" id="b2-fabworks">
+                <div class="simple-heading">
+                    <p class="section-number">04 / B2 Fabworks</p>
+
+                    <h2 class="section-title">
+                        B2 Fabworks Branding Collection.
+                    </h2>
+                </div>
+
+                <!-- B2 BRANDING: 1 ROW OF 3 -->
+
+                <div class="b2-subsection" id="b2-branding">
+                    <div class="subsection-heading">
+                        <p class="subsection-label">B2 Fabworks</p>
+
+                        <h3 class="subsection-title">Branding</h3>
+                    </div>
+
+                    <div class="square-grid">
+                        <div class="square-item">
+                            <img
+                                src="images/b2-branding-1.jpg"
+                                alt="B2 Fabworks branding"
+                            />
+                        </div>
+
+                        <div class="square-item">
+                            <img
+                                src="images/b2-branding-2.jpg"
+                                alt="B2 Fabworks branding"
+                            />
+                        </div>
+
+                        <div class="square-item">
+                            <img
+                                src="images/b2-branding-3.jpg"
+                                alt="B2 Fabworks branding"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B2 PHOTOS: 3 ROWS OF 4 -->
+
+                <div class="b2-subsection" id="b2-photos">
+                    <div class="subsection-heading">
+                        <p class="subsection-label">B2 Fabworks</p>
+
+                        <h3 class="subsection-title">Photos</h3>
+                    </div>
+
+                    <div class="square-grid">
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-1.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-2.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-3.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-4.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-5.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-6.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-7.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-8.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-9.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-10.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-11.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                        <div class="square-item">
+                            <img
+                                src="images/b2-photo-12.jpg"
+                                alt="B2 Fabworks photograph"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <span>Olivia Leon</span>
+                <span>Created with intention</span>
+            </footer>
+        </main>
+    </body>
+</html>
